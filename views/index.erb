@@ -1,0 +1,10 @@
+<h3> Список наших постов: </h3>
+<% @posts.each do |post| %>
+	<p>
+		<br />
+		<%= post.content %> <br />
+		<sub><b>Added</b> by <%= post.username %> at <%= post.created_at %></sub><a href="/post/<%= post.id %>"><sub>   Comments</sub></a> 
+		<br />
+
+	</p>
+<% end %>

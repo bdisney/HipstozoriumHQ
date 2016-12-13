@@ -1,0 +1,24 @@
+ <h4><%= @post.content %></h4>
+ <sub><b>Added</b> by <%= @post.username %> at <%= @post.created_at %></sub><a href="/post/<%= @post.id %>"><sub>   Comments</sub></a> 
+<br />
+<br />
+<h4>Comments:</h4>
+
+
+<% @comments.each do |comment|%>
+	<p>
+		<%= comment.content %>
+		<br/>
+		<span style="font-size: 75%; color: #999"<b>Написал</b> <%=comment.username %> в <%= comment.created_at %><hr />
+	</p>
+<% end %>
+
+
+	<form action="/post/<%= @post.id %>" method="POST" role="form">
+	 <input style="width: 400px" type="text" name="comment[username]" class="form-control" placeholder="Input username" autofocus> <br />
+	
+		  <textarea style="width: 400px" name="comment[content]" class="form-control" rows="6" placeholder="Type comment text here" autofocus></textarea>
+	  <br>
+	  <button type="submit"  class="btn btn-success btn-right">Ahoy!</button>
+	</form>
+
